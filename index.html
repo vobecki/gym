@@ -1,0 +1,1698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Forge Fitness Club — Premium Strength Training & Performance Coaching</title>
+<meta name="description" content="Forge Fitness Club — premium strength training, HIIT, boxing and mobility coaching in Nakuru. Book a free trial session today.">
+<meta property="og:title" content="Forge Fitness Club — Train Like It's Your Job" />
+<meta property="og:description" content="Premium strength training, HIIT, boxing and mobility coaching in Nakuru. Real coaches, real results." />
+<meta property="og:type" content="website" />
+<link rel="canonical" href="https://forgefitness.co.ke" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  /* ─── RESET & VARIABLES ─── */
+  *{ box-sizing: border-box; margin:0; padding:0; }
+  html{ scroll-behavior: smooth; }
+  
+  :root{
+    --bg: #101210;
+    --bg-alt: #1b1f1c;
+    --bg-card: #191d1a;
+    --line: #2a2f2b;
+    --chalk: #f1efe6;
+    --chalk-dim: #a9a79c;
+    --yellow: #f2b705;
+    --yellow-glow: rgba(242,183,5,0.25);
+    --ember: #c1440e;
+    --steel: #4a5a56;
+    --radius: 4px;
+    --maxw: 1180px;
+    --shadow: 0 8px 32px rgba(0,0,0,0.4);
+    --shadow-glow: 0 8px 40px rgba(242,183,5,0.15);
+    --transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  body{
+    background: var(--bg);
+    color: var(--chalk);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+  img{ max-width:100%; display:block; }
+  a{ color: inherit; text-decoration: none; }
+  ul{ list-style: none; }
+
+  h1,h2,h3,h4{
+    font-family: 'Anton', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    line-height: 1.05;
+    text-transform: uppercase;
+  }
+
+  .wrap{ max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+  section{ padding: 100px 0; }
+  
+  .eyebrow{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--yellow);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+  .eyebrow::before{
+    content: "";
+    width: 32px; height: 2.5px;
+    background: var(--yellow);
+    display: inline-block;
+    border-radius: 2px;
+  }
+  .section-title{ 
+    font-size: clamp(32px, 4.5vw, 52px); 
+    max-width: 640px; 
+    margin-bottom: 16px;
+    background: linear-gradient(135deg, var(--chalk), var(--chalk-dim));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .section-sub{ 
+    color: var(--chalk-dim); 
+    max-width: 560px; 
+    font-size: 16px; 
+    font-weight: 300;
+  }
+  .section-head{ margin-bottom: 56px; }
+
+  :focus-visible{ outline: 2px solid var(--yellow); outline-offset: 3px; }
+
+  /* ─── SCROLL REVEAL ─── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ─── BUTTONS ─── */
+  .btn{
+    display: inline-flex; align-items: center; gap: 10px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 16px 30px;
+    border-radius: var(--radius);
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: var(--transition);
+    white-space: nowrap;
+    font-weight: 600;
+  }
+  .btn:hover{ transform: translateY(-3px); }
+  .btn-primary{ 
+    background: linear-gradient(135deg, var(--yellow), #e6a800); 
+    color: #101210; 
+    font-weight: 700;
+    box-shadow: 0 4px 24px var(--yellow-glow);
+  }
+  .btn-primary:hover{ 
+    box-shadow: 0 8px 40px var(--yellow-glow);
+    transform: translateY(-3px) scale(1.02);
+  }
+  .btn-ghost{ 
+    border-color: var(--line); 
+    color: var(--chalk);
+    background: rgba(255,255,255,0.03);
+  }
+  .btn-ghost:hover{ 
+    border-color: var(--yellow); 
+    color: var(--yellow);
+    background: rgba(242,183,5,0.06);
+  }
+
+  /* ─── HEADER ─── */
+  header{
+    position: fixed; top:0; left:0; right:0; z-index: 1000;
+    background: rgba(16,18,16,0.88);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--line);
+    transition: var(--transition);
+  }
+  header.scrolled {
+    box-shadow: 0 4px 32px rgba(0,0,0,0.5);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding: 18px 24px;
+    max-width: var(--maxw); margin:0 auto;
+  }
+  .logo{ 
+    font-family:'Anton', sans-serif; 
+    font-size:24px; 
+    letter-spacing:1px;
+    position: relative;
+  }
+  .logo span{ color: var(--yellow); }
+  .logo::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--yellow), transparent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s;
+  }
+  .logo:hover::after {
+    transform: scaleX(1);
+  }
+
+  .nav-links{ display:flex; gap:32px; align-items:center; }
+  .nav-links a{
+    font-family:'IBM Plex Mono', monospace; 
+    font-size: 12px;
+    letter-spacing: 1.5px; 
+    text-transform: uppercase;
+    color: var(--chalk-dim); 
+    transition: var(--transition);
+    position: relative;
+  }
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--yellow);
+    transition: width 0.3s;
+  }
+  .nav-links a:hover::after {
+    width: 100%;
+  }
+  .nav-links a:hover{ color: var(--yellow); }
+  
+  .nav-cta{ display:flex; align-items:center; gap:20px; }
+  .burger{ 
+    display:none; 
+    background:none; 
+    border:none; 
+    cursor:pointer; 
+    padding:6px;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .burger span{ 
+    display:block; 
+    width:26px; 
+    height:2.5px; 
+    background:var(--chalk); 
+    border-radius: 2px;
+    transition: var(--transition);
+  }
+  .burger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  .burger.active span:nth-child(2) {
+    opacity: 0;
+  }
+  .burger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+
+  /* ─── HERO ─── */
+  .hero{
+    min-height: 100vh;
+    display:flex; 
+    flex-direction:column; 
+    justify-content:center;
+    padding-top: 120px;
+    position: relative;
+    background:
+      radial-gradient(ellipse 80% 60% at 70% 20%, rgba(242,183,5,0.06), transparent),
+      repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(255,255,255,0.015) 40px),
+      repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(255,255,255,0.015) 40px),
+      var(--bg);
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -30%;
+    right: -20%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(242,183,5,0.04), transparent 70%);
+    border-radius: 50%;
+    animation: floatBg 25s ease-in-out infinite;
+    pointer-events: none;
+  }
+  @keyframes floatBg {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(40px, -40px) scale(1.1); }
+  }
+
+  .hero-grid{
+    display:grid; 
+    grid-template-columns: 1.1fr 0.9fr; 
+    gap:56px; 
+    align-items:center;
+    max-width: var(--maxw); 
+    margin:0 auto; 
+    padding: 0 24px;
+    position: relative;
+    z-index: 1;
+  }
+  .hero-tag{
+    font-family:'IBM Plex Mono', monospace; 
+    font-size:13px; 
+    letter-spacing:3px;
+    color: var(--ember); 
+    text-transform:uppercase; 
+    margin-bottom:20px;
+    display:flex; 
+    align-items:center; 
+    gap:10px;
+    animation: fadeInDown 0.8s ease;
+  }
+  .hero-tag .dot{ 
+    width:8px; 
+    height:8px; 
+    border-radius:50%; 
+    background:var(--ember); 
+    animation: pulse 1.8s infinite; 
+  }
+  @keyframes pulse{ 0%,100%{ opacity:1; } 50%{ opacity:.3; } }
+  @keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero h1{ 
+    font-size: clamp(48px, 7vw, 92px); 
+    animation: fadeInUp 0.8s ease 0.1s both;
+  }
+  .hero h1 .accent{ 
+    color: var(--yellow);
+    text-shadow: 0 0 40px var(--yellow-glow);
+  }
+  .hero-desc{ 
+    color: var(--chalk-dim); 
+    font-size:18px; 
+    max-width:460px; 
+    margin: 24px 0 36px; 
+    font-weight: 300;
+    animation: fadeInUp 0.8s ease 0.2s both;
+  }
+  .hero-ctas{ 
+    display:flex; 
+    gap:16px; 
+    flex-wrap:wrap;
+    animation: fadeInUp 0.8s ease 0.3s both;
+  }
+  
+  .hero-img-wrap{ position:relative; }
+  .hero-img{
+    width:100%; 
+    aspect-ratio: 4/5; 
+    object-fit:cover;
+    border: 1px solid var(--line);
+    filter: contrast(1.08) saturate(0.95);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+  }
+  .hero-badge{
+    position:absolute; 
+    bottom:-24px; 
+    left:-24px;
+    background: linear-gradient(135deg, var(--yellow), #e6a800);
+    color:#101210;
+    padding:20px 26px;
+    border-radius: var(--radius);
+    font-family:'IBM Plex Mono', monospace;
+    box-shadow: 0 8px 32px var(--yellow-glow);
+    animation: floatCard 3s ease-in-out infinite;
+  }
+  .hero-badge b{ font-family:'Anton'; font-size:30px; display:block; }
+  .hero-badge span{ font-size:11px; letter-spacing:1px; text-transform:uppercase; font-weight:600; }
+  
+  @keyframes floatCard {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+
+  /* Trust badges */
+  .trust-badges {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+    animation: fadeInUp 0.8s ease 0.4s both;
+  }
+  .trust-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+    color: var(--chalk-dim);
+    font-weight: 500;
+    font-family: 'IBM Plex Mono', monospace;
+  }
+  .trust-badge .badge-icon {
+    width: 28px;
+    height: 28px;
+    background: rgba(242,183,5,0.12);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    border: 1px solid rgba(242,183,5,0.15);
+  }
+
+  /* ─── TICKER ─── */
+  .ticker{
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    background: #0b0d0b;
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 18px 0;
+    position: relative;
+  }
+  .ticker::before,
+  .ticker::after {
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0;
+    width: 60px;
+    z-index: 2;
+    pointer-events: none;
+  }
+  .ticker::before {
+    left: 0;
+    background: linear-gradient(90deg, #0b0d0b, transparent);
+  }
+  .ticker::after {
+    right: 0;
+    background: linear-gradient(270deg, #0b0d0b, transparent);
+  }
+  .ticker-track{
+    display: inline-flex;
+    animation: scroll-left 30s linear infinite;
+  }
+  .ticker-item{
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 14px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--yellow);
+    padding: 0 36px;
+    border-right: 1px solid var(--line);
+  }
+  .ticker-item b{ color: var(--chalk); }
+  @keyframes scroll-left{
+    from{ transform: translateX(0); }
+    to{ transform: translateX(-50%); }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .ticker-track{ animation: none; }
+  }
+
+  /* ─── FACILITY ─── */
+  .facility-grid{
+    display:grid; 
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 20px;
+  }
+  .facility-grid .fac-img-wrap {
+    overflow: hidden;
+    border-radius: var(--radius);
+    border: 1px solid var(--line);
+  }
+  .facility-grid img{ 
+    height: 260px; 
+    object-fit: cover; 
+    filter: contrast(1.08) saturate(0.9);
+    transition: var(--transition);
+    width: 100%;
+  }
+  .facility-grid .fac-img-wrap:hover img {
+    transform: scale(1.05);
+    filter: contrast(1.15) saturate(1);
+  }
+  .facility-copy{ 
+    display:grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 40px; 
+    margin-top: 48px; 
+  }
+  .facility-copy p{ 
+    color: var(--chalk-dim); 
+    font-size:15px; 
+    line-height: 1.8;
+    font-weight: 300;
+  }
+
+  /* ─── PROGRAMS ─── */
+  .programs-grid{ 
+    display:grid; 
+    grid-template-columns: repeat(4, 1fr); 
+    gap:1px; 
+    background: var(--line); 
+    border:1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  .program-card{
+    background: var(--bg-card); 
+    padding: 40px 30px;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+  }
+  .program-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--yellow), transparent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s;
+  }
+  .program-card:hover::before {
+    transform: scaleX(1);
+  }
+  .program-card:hover{ 
+    background: #1f2420; 
+    transform: translateY(-4px);
+  }
+  .program-num{ 
+    font-family:'IBM Plex Mono', monospace; 
+    color: var(--ember); 
+    font-size:12px; 
+    margin-bottom:16px;
+    letter-spacing: 2px;
+  }
+  .program-card h3{ 
+    font-size:22px; 
+    margin-bottom:12px;
+    color: var(--chalk);
+  }
+  .program-card p{ 
+    color: var(--chalk-dim); 
+    font-size:14px;
+    font-weight: 300;
+    line-height: 1.7;
+  }
+
+  /* ─── COACHES ─── */
+  .coaches-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap:28px; }
+  .coach-card{
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: var(--transition);
+  }
+  .coach-card:hover{
+    transform: translateY(-8px);
+    border-color: var(--yellow);
+    box-shadow: var(--shadow-glow);
+  }
+  .coach-card .coach-img-wrap {
+    overflow: hidden;
+  }
+  .coach-card img{ 
+    width:100%; 
+    aspect-ratio: 3/4; 
+    object-fit:cover; 
+    filter: grayscale(0.3) contrast(1.1);
+    transition: var(--transition);
+  }
+  .coach-card:hover img {
+    transform: scale(1.05);
+    filter: grayscale(0) contrast(1.15);
+  }
+  .coach-info{ 
+    padding: 20px 24px; 
+    display:flex; 
+    justify-content:space-between; 
+    align-items:flex-start;
+  }
+  .coach-info h4{ 
+    font-size:18px; 
+    color: var(--chalk);
+  }
+  .coach-info span{ 
+    color: var(--chalk-dim); 
+    font-size:13px; 
+    font-family:'IBM Plex Mono', monospace;
+  }
+  .coach-tag{ 
+    color: var(--yellow); 
+    font-size:11px; 
+    font-family:'IBM Plex Mono', monospace; 
+    letter-spacing:1px;
+    padding: 3px 10px;
+    border: 1px solid rgba(242,183,5,0.2);
+    border-radius: 50px;
+    background: rgba(242,183,5,0.06);
+  }
+  .coach-social {
+    display: flex;
+    gap: 8px;
+    margin-top: 8px;
+  }
+  .coach-social a {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    color: var(--chalk-dim);
+    transition: var(--transition);
+  }
+  .coach-social a:hover {
+    border-color: var(--yellow);
+    color: var(--yellow);
+    background: rgba(242,183,5,0.06);
+  }
+
+  /* ─── SCHEDULE ─── */
+  .schedule-table{ 
+    width:100%; 
+    border-collapse: collapse; 
+    font-family:'IBM Plex Mono', monospace; 
+    font-size:13px; 
+  }
+  .schedule-table th, .schedule-table td{
+    border: 1px solid var(--line); 
+    padding: 16px 10px; 
+    text-align:center;
+    transition: var(--transition);
+  }
+  .schedule-table th{ 
+    background: var(--bg-alt); 
+    text-transform:uppercase; 
+    letter-spacing:1px; 
+    color: var(--yellow); 
+    font-size:11px;
+    font-weight: 600;
+  }
+  .schedule-table td{ color: var(--chalk-dim); }
+  .schedule-table td.active{ 
+    color: var(--chalk); 
+    background: rgba(242,183,5,0.08);
+    border-color: rgba(242,183,5,0.15);
+  }
+  .schedule-table td:hover {
+    background: rgba(242,183,5,0.04);
+  }
+  .schedule-scroll{ 
+    overflow-x:auto; 
+    border:1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--bg-card);
+  }
+
+  /* ─── PRICING ─── */
+  .pricing-grid{ display:grid; grid-template-columns: repeat(3,1fr); gap:24px; }
+  .price-card{
+    border: 1px solid var(--line); 
+    padding: 44px 32px;
+    display:flex; 
+    flex-direction:column; 
+    background: var(--bg-card);
+    border-radius: var(--radius);
+    transition: var(--transition);
+  }
+  .price-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--chalk-dim);
+    box-shadow: var(--shadow);
+  }
+  .price-card.featured{ 
+    border-color: var(--yellow); 
+    background: #1f2118; 
+    position:relative;
+    box-shadow: var(--shadow-glow);
+  }
+  .price-card.featured::before{
+    content: "⚡ MOST POPULAR";
+    position:absolute; top:-13px; left:32px;
+    background: var(--yellow); color:#101210;
+    font-family:'IBM Plex Mono', monospace; font-size:10px; letter-spacing:1px;
+    padding: 4px 16px;
+    border-radius: 50px;
+    font-weight: 700;
+  }
+  .price-tier{ 
+    font-family:'IBM Plex Mono', monospace; 
+    color:var(--chalk-dim); 
+    font-size:12px; 
+    letter-spacing:2px; 
+    text-transform:uppercase; 
+    margin-bottom:12px; 
+  }
+  .price-amount{ 
+    font-family:'Anton'; 
+    font-size:48px; 
+    margin-bottom:4px;
+    color: var(--chalk);
+  }
+  .price-amount span{ 
+    font-family:'Inter'; 
+    font-size:14px; 
+    color:var(--chalk-dim); 
+    text-transform:none; 
+    letter-spacing:0; 
+    font-weight: 300;
+  }
+  .price-card ul{ margin: 28px 0; flex-grow:1; }
+  .price-card li{ 
+    padding: 10px 0; 
+    border-bottom: 1px solid var(--line); 
+    font-size:14px; 
+    color: var(--chalk-dim); 
+    display:flex; 
+    gap:10px;
+    font-weight: 300;
+  }
+  .price-card li::before{
+    content:"▸"; 
+    color: var(--yellow);
+    font-weight: 600;
+  }
+
+  /* ─── TESTIMONIALS ─── */
+  .testimonial-grid{ display:grid; grid-template-columns: repeat(3,1fr); gap:24px; }
+  .t-card{ 
+    border:1px solid var(--line); 
+    padding: 32px; 
+    background: var(--bg-card);
+    border-radius: var(--radius);
+    transition: var(--transition);
+  }
+  .t-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--yellow);
+    box-shadow: var(--shadow-glow);
+  }
+  .t-stars {
+    color: #f2b705;
+    font-size: 16px;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+  }
+  .t-quote{ 
+    font-size:15px; 
+    color: var(--chalk); 
+    margin-bottom:20px;
+    line-height: 1.8;
+    font-weight: 300;
+    font-style: italic;
+  }
+  .t-quote::before {
+    content: '"';
+    font-size: 28px;
+    color: var(--yellow);
+    font-family: serif;
+    margin-right: 4px;
+  }
+  .t-person{ display:flex; align-items:center; gap:12px; }
+  .t-person img{ 
+    width:48px; 
+    height:48px; 
+    border-radius:50%; 
+    object-fit:cover;
+    border: 2px solid var(--line);
+  }
+  .t-person b{ display:block; font-size:14px; color: var(--chalk); }
+  .t-person span{ color: var(--chalk-dim); font-size:12px; font-family:'IBM Plex Mono', monospace; }
+
+  /* ─── GALLERY ─── */
+  .gallery-grid{ 
+    display:grid; 
+    grid-template-columns: repeat(4, 1fr); 
+    grid-auto-rows: 180px; 
+    gap:10px; 
+  }
+  .gallery-grid .gallery-item {
+    overflow: hidden;
+    border-radius: var(--radius);
+    border: 1px solid var(--line);
+    cursor: pointer;
+  }
+  .gallery-grid img{ 
+    width:100%; 
+    height:100%; 
+    object-fit:cover; 
+    filter: grayscale(0.2) contrast(1.1);
+    transition: var(--transition);
+  }
+  .gallery-grid .gallery-item:hover img {
+    transform: scale(1.08);
+    filter: grayscale(0) contrast(1.15);
+  }
+  .gallery-grid > *:nth-child(1){ grid-column: span 2; grid-row: span 2; }
+
+  /* ─── FAQ ─── */
+  .faq-item{ 
+    border-bottom: 1px solid var(--line); 
+  }
+  .faq-q{
+    width:100%; 
+    text-align:left; 
+    background:none; 
+    border:none; 
+    color: var(--chalk);
+    font-family:'Inter'; 
+    font-size:17px; 
+    font-weight:600; 
+    padding: 24px 0;
+    display:flex; 
+    justify-content:space-between; 
+    align-items:center; 
+    cursor:pointer;
+    transition: var(--transition);
+  }
+  .faq-q:hover {
+    color: var(--yellow);
+  }
+  .faq-q .icon{ 
+    font-family:'IBM Plex Mono'; 
+    color: var(--yellow); 
+    font-size:24px; 
+    transition: transform .3s ease;
+    font-weight: 300;
+  }
+  .faq-item.open .icon{ transform: rotate(45deg); }
+  .faq-a{ 
+    max-height:0; 
+    overflow:hidden; 
+    transition: max-height .35s ease; 
+    color: var(--chalk-dim); 
+    font-size:15px;
+    font-weight: 300;
+  }
+  .faq-a-inner{ padding-bottom: 24px; max-width:640px; line-height: 1.8; }
+
+  /* ─── VISIT ─── */
+  .visit-grid{ display:grid; grid-template-columns: 1fr 1fr; gap:48px; }
+  .visit-info-row{ 
+    display:flex; 
+    gap:16px; 
+    padding: 18px 0; 
+    border-bottom:1px solid var(--line); 
+  }
+  .visit-info-row .k{ 
+    font-family:'IBM Plex Mono', monospace; 
+    color:var(--yellow); 
+    font-size:11px; 
+    letter-spacing:1px; 
+    text-transform:uppercase; 
+    width:110px; 
+    flex-shrink:0;
+    font-weight: 600;
+  }
+  .visit-info-row .v{ 
+    color: var(--chalk-dim); 
+    font-size:15px;
+    font-weight: 300;
+  }
+  .visit-info-row .v a {
+    color: var(--chalk);
+    transition: var(--transition);
+  }
+  .visit-info-row .v a:hover {
+    color: var(--yellow);
+  }
+  .map-frame{ 
+    width:100%; 
+    height:100%; 
+    min-height:340px; 
+    border:1px solid var(--line); 
+    border-radius: var(--radius);
+    filter: grayscale(0.4) invert(0.92) contrast(0.9);
+  }
+
+  .contact-form{ display:flex; flex-direction:column; gap:16px; margin-top: 28px; }
+  .contact-form input, .contact-form textarea{
+    background: var(--bg-card); 
+    border:1px solid var(--line); 
+    color: var(--chalk);
+    padding: 14px 16px; 
+    font-family:'Inter'; 
+    font-size:14px; 
+    border-radius: var(--radius);
+    transition: var(--transition);
+  }
+  .contact-form input:focus, .contact-form textarea:focus{ 
+    border-color: var(--yellow); 
+    outline:none; 
+    box-shadow: 0 0 0 4px var(--yellow-glow);
+  }
+  .contact-form label{ 
+    font-family:'IBM Plex Mono', monospace; 
+    font-size:11px; 
+    color:var(--chalk-dim); 
+    letter-spacing:1px; 
+    text-transform:uppercase; 
+    margin-bottom:-6px;
+    font-weight: 600;
+  }
+  .contact-form input::placeholder,
+  .contact-form textarea::placeholder {
+    color: var(--chalk-dim);
+    opacity: 0.5;
+  }
+
+  /* ─── CTA BAND ─── */
+  .cta-band{
+    background: linear-gradient(135deg, #1f2118, #14150f);
+    border-top:1px solid var(--line); 
+    border-bottom:1px solid var(--line);
+    text-align:center;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-band::before {
+    content: '💪';
+    position: absolute;
+    right: -60px;
+    top: -60px;
+    font-size: 200px;
+    opacity: 0.03;
+  }
+  .cta-band h2{ 
+    font-size: clamp(30px, 5vw, 56px); 
+    margin-bottom:20px;
+  }
+  .cta-band .btn{ margin-top: 8px; }
+
+  /* ─── FOOTER ─── */
+  footer{ padding: 56px 0 32px; }
+  .footer-grid{ 
+    display:grid; 
+    grid-template-columns: 1.4fr 1fr 1fr 1fr; 
+    gap: 40px; 
+    margin-bottom: 48px; 
+  }
+  .footer-grid h4{ 
+    font-family:'IBM Plex Mono', monospace; 
+    font-size:11px; 
+    letter-spacing:1.5px; 
+    color:var(--yellow); 
+    margin-bottom:18px; 
+    text-transform:uppercase;
+  }
+  .footer-grid ul li{ margin-bottom:10px; }
+  .footer-grid a{ 
+    color: var(--chalk-dim); 
+    font-size:14px;
+    transition: var(--transition);
+    font-weight: 300;
+  }
+  .footer-grid a:hover{ color: var(--chalk); }
+  
+  .footer-social {
+    display: flex;
+    gap: 12px;
+    margin-top: 16px;
+  }
+  .footer-social a {
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--chalk-dim);
+    transition: var(--transition);
+    font-size: 14px;
+  }
+  .footer-social a:hover {
+    border-color: var(--yellow);
+    color: var(--yellow);
+    background: rgba(242,183,5,0.06);
+    transform: translateY(-3px);
+  }
+
+  .footer-newsletter input {
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    color: var(--chalk);
+    padding: 12px 16px;
+    border-radius: var(--radius);
+    width: 100%;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    transition: var(--transition);
+  }
+  .footer-newsletter input:focus {
+    border-color: var(--yellow);
+    outline: none;
+    box-shadow: 0 0 0 4px var(--yellow-glow);
+  }
+  .footer-newsletter input::placeholder {
+    color: var(--chalk-dim);
+    opacity: 0.5;
+  }
+  .footer-newsletter button {
+    margin-top: 10px;
+    background: var(--yellow);
+    color: #101210;
+    border: none;
+    padding: 12px 20px;
+    border-radius: var(--radius);
+    font-weight: 700;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: var(--transition);
+    width: 100%;
+  }
+  .footer-newsletter button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px var(--yellow-glow);
+  }
+
+  .footer-bottom{ 
+    border-top:1px solid var(--line); 
+    padding-top:24px; 
+    display:flex; 
+    justify-content:space-between; 
+    color: var(--chalk-dim); 
+    font-size:12px; 
+    font-family:'IBM Plex Mono', monospace; 
+    flex-wrap:wrap; 
+    gap:12px; 
+  }
+
+  /* ─── WHATSAPP FLOATING BUTTON (PREMIUM) ─── */
+  .whatsapp-float {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+    animation: waPulse 2.5s ease-in-out infinite;
+  }
+
+  .whatsapp-float .wa-wrapper {
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 30px rgba(37, 211, 102, 0.4);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border: 2px solid rgba(255, 255, 255, 0.15);
+    position: relative;
+  }
+
+  .whatsapp-float .wa-wrapper:hover {
+    transform: scale(1.12) rotate(-4deg);
+    box-shadow: 0 10px 50px rgba(37, 211, 102, 0.55);
+  }
+
+  .whatsapp-float .wa-wrapper svg {
+    width: 34px;
+    height: 34px;
+    fill: white;
+  }
+
+  .whatsapp-float .wa-tooltip {
+    background: rgba(0, 0, 0, 0.88);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    color: white;
+    padding: 6px 18px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    letter-spacing: 0.3px;
+  }
+
+  .whatsapp-float:hover .wa-tooltip {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .whatsapp-float .wa-badge {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    background: #ff3b30;
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #128C7E;
+    font-family: 'Inter', sans-serif;
+    box-shadow: 0 2px 8px rgba(255, 59, 48, 0.3);
+  }
+
+  @keyframes waPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.04); }
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 1024px) {
+    .footer-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+  }
+
+  @media (max-width: 980px){
+    .hero-grid{ grid-template-columns:1fr; }
+    .hero-img-wrap{ order:-1; max-width:400px; margin: 0 auto 32px; }
+    .facility-grid{ grid-template-columns: repeat(2,1fr); }
+    .facility-copy{ grid-template-columns:1fr; }
+    .programs-grid{ grid-template-columns: repeat(2,1fr); }
+    .coaches-grid{ grid-template-columns: repeat(2,1fr); }
+    .pricing-grid{ grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+    .testimonial-grid{ grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+    .gallery-grid{ grid-template-columns: repeat(2,1fr); grid-auto-rows: 140px; }
+    .visit-grid{ grid-template-columns:1fr; }
+  }
+
+  @media (max-width: 768px){
+    .nav-links{ 
+      display:none; 
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: var(--bg);
+      border-bottom: 1px solid var(--line);
+      flex-direction: column;
+      padding: 24px;
+      gap: 16px;
+    }
+    .nav-links.open {
+      display: flex;
+    }
+    .burger{ display:flex; }
+    section{ padding: 64px 0; }
+    .programs-grid{ grid-template-columns: 1fr; }
+    .coaches-grid{ grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+    .facility-grid{ grid-template-columns: 1fr; }
+    .hero-badge{ left:0; bottom:-20px; }
+    .hero-badge b { font-size: 24px; }
+    .footer-grid{ grid-template-columns: 1fr; gap: 2rem; }
+    .whatsapp-float .wa-wrapper {
+      width: 56px;
+      height: 56px;
+    }
+    .whatsapp-float .wa-wrapper svg {
+      width: 28px;
+      height: 28px;
+    }
+    .whatsapp-float .wa-tooltip {
+      display: none;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero h1 { font-size: 32px; }
+    .hero-ctas { flex-direction: column; width: 100%; }
+    .hero-ctas .btn { width: 100%; justify-content: center; }
+    .trust-badges { flex-direction: column; gap: 0.8rem; }
+    .section-title { font-size: 28px; }
+    .gallery-grid { grid-template-columns: repeat(2,1fr); grid-auto-rows: 100px; }
+    .price-card { padding: 28px 20px; }
+    .ticker-item { font-size: 11px; padding: 0 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══ HEADER ═══ -->
+<header id="site-header">
+  <nav class="nav">
+    <a href="#top" class="logo">FORGE<span>.</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#facility">Facility</a></li>
+      <li><a href="#programs">Programs</a></li>
+      <li><a href="#coaches">Coaches</a></li>
+      <li><a href="#schedule">Schedule</a></li>
+      <li><a href="#pricing">Membership</a></li>
+      <li><a href="#visit">Visit</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="tel:+254700000000" class="btn btn-ghost" style="display:none;" id="callBtn">📞 Call Now</a>
+      <a href="#pricing" class="btn btn-primary">🔥 Free Trial</a>
+      <button class="burger" id="burger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero" id="top">
+  <div class="hero-grid">
+    <div>
+      <div class="hero-tag"><span class="dot"></span> Now enrolling — Nakuru's strength floor</div>
+      <h1>Train like<br>it's <span class="accent">your job.</span></h1>
+      <p class="hero-desc">Strength training, HIIT, boxing and mobility coaching under one roof. Real coaches, real programming, real results — not just a room full of machines.</p>
+      <div class="hero-ctas">
+        <a href="#pricing" class="btn btn-primary">🔥 Book Your Free Trial</a>
+        <a href="https://wa.me/254700000000?text=Hi%20Forge%2C%20I'd%20like%20to%20book%20a%20free%20trial%20session" class="btn btn-ghost">💬 Chat on WhatsApp</a>
+      </div>
+      <div class="trust-badges">
+        <span class="trust-badge">
+          <span class="badge-icon">🏆</span> 6+ Years
+        </span>
+        <span class="trust-badge">
+          <span class="badge-icon">💪</span> 1,240+ Members
+        </span>
+        <span class="trust-badge">
+          <span class="badge-icon">⭐</span> 4.9★ Rating
+        </span>
+      </div>
+    </div>
+    <div class="hero-img-wrap">
+      <img class="hero-img" src="https://image.pollinations.ai/prompt/gritty%20industrial%20gym%20interior%2C%20man%20lifting%20barbell%2C%20dramatic%20lighting%2C%20black%20rubber%20flooring%2C%20cinematic%20photo?nologo=true" alt="Athlete lifting a barbell inside Forge Fitness Club" loading="lazy">
+      <div class="hero-badge"><b>6+ yrs</b><span>Coaching in Nakuru</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TICKER ═══ -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span class="ticker-item"><b>1,240+</b> members trained</span>
+    <span class="ticker-item"><b>42</b> classes / week</span>
+    <span class="ticker-item"><b>6</b> certified coaches</span>
+    <span class="ticker-item"><b>05:30 – 21:00</b> daily</span>
+    <span class="ticker-item">est. <b>2019</b></span>
+    <span class="ticker-item"><b>1,240+</b> members trained</span>
+    <span class="ticker-item"><b>42</b> classes / week</span>
+    <span class="ticker-item"><b>6</b> certified coaches</span>
+    <span class="ticker-item"><b>05:30 – 21:00</b> daily</span>
+    <span class="ticker-item">est. <b>2019</b></span>
+  </div>
+</div>
+
+<!-- ═══ FACILITY ═══ -->
+<section id="facility">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">The Facility</div>
+      <h2 class="section-title">Built for people who train seriously.</h2>
+      <p class="section-sub">Free weights, turf sled track, boxing bags, and a full functional rig — every station chosen for a reason, not for show.</p>
+    </div>
+    <div class="facility-grid">
+      <div class="fac-img-wrap reveal">
+        <img src="https://image.pollinations.ai/prompt/modern%20gym%20free%20weights%20area%2C%20dumbbells%20rack%2C%20moody%20dark%20interior%2C%20photo?nologo=true" alt="Free weights area" loading="lazy">
+      </div>
+      <div class="fac-img-wrap reveal">
+        <img src="https://image.pollinations.ai/prompt/gym%20turf%20sled%20track%2C%20functional%20training%20rig%2C%20dark%20industrial%20interior%2C%20photo?nologo=true" alt="Turf and sled training area" loading="lazy">
+      </div>
+      <div class="fac-img-wrap reveal">
+        <img src="https://image.pollinations.ai/prompt/boxing%20heavy%20bags%20gym%20corner%2C%20dramatic%20lighting%2C%20photo?nologo=true" alt="Boxing area" loading="lazy">
+      </div>
+    </div>
+    <div class="facility-copy">
+      <p>Every piece of equipment on our floor is commercial-grade and maintained weekly — no rusted plates, no broken cables, no excuses. We keep the floor uncrowded on purpose so you're never waiting on a rack.</p>
+      <p>Showers, lockers, and free parking are included with every membership. We're a 5-minute walk from town, open early and late for people who train before or after work.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PROGRAMS ═══ -->
+<section id="programs" style="background: var(--bg-alt);">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Training Programs</div>
+      <h2 class="section-title">Pick a lane. We'll coach you through it.</h2>
+    </div>
+    <div class="programs-grid">
+      <div class="program-card reveal">
+        <div class="program-num">STRENGTH</div>
+        <h3>Powerlifting & Strength</h3>
+        <p>Squat, bench, deadlift programming with certified coaches watching your form every session.</p>
+      </div>
+      <div class="program-card reveal">
+        <div class="program-num">CONDITIONING</div>
+        <h3>HIIT & Circuits</h3>
+        <p>45-minute high-intensity classes built to burn fat and build conditioning without wrecking your joints.</p>
+      </div>
+      <div class="program-card reveal">
+        <div class="program-num">COMBAT</div>
+        <h3>Boxing & Bag Work</h3>
+        <p>Technique-first boxing coaching for fitness or competition — pads, bags, and real sparring drills.</p>
+      </div>
+      <div class="program-card reveal">
+        <div class="program-num">RECOVERY</div>
+        <h3>Mobility & Recovery</h3>
+        <p>Stretch, mobility and recovery sessions to keep you training injury-free, week after week.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ COACHES ═══ -->
+<section id="coaches">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Your Coaches</div>
+      <h2 class="section-title">Certified. Present. Watching your form.</h2>
+    </div>
+    <div class="coaches-grid">
+      <div class="coach-card reveal">
+        <div class="coach-img-wrap">
+          <img src="https://image.pollinations.ai/prompt/portrait%20of%20confident%20male%20fitness%20coach%2C%20gym%20background%2C%20professional%20photo?nologo=true" alt="Coach David Otieno" loading="lazy">
+        </div>
+        <div class="coach-info">
+          <div>
+            <h4>David Otieno</h4>
+            <span>Head Strength Coach</span>
+            <div class="coach-social">
+              <a href="#" aria-label="Instagram">📸</a>
+              <a href="#" aria-label="LinkedIn">🔗</a>
+            </div>
+          </div>
+          <span class="coach-tag">CSCS</span>
+        </div>
+      </div>
+      <div class="coach-card reveal">
+        <div class="coach-img-wrap">
+          <img src="https://image.pollinations.ai/prompt/portrait%20of%20confident%20female%20fitness%20coach%2C%20gym%20background%2C%20professional%20photo?nologo=true" alt="Coach Grace Njeri" loading="lazy">
+        </div>
+        <div class="coach-info">
+          <div>
+            <h4>Grace Njeri</h4>
+            <span>HIIT & Conditioning</span>
+            <div class="coach-social">
+              <a href="#" aria-label="Instagram">📸</a>
+              <a href="#" aria-label="LinkedIn">🔗</a>
+            </div>
+          </div>
+          <span class="coach-tag">ACE</span>
+        </div>
+      </div>
+      <div class="coach-card reveal">
+        <div class="coach-img-wrap">
+          <img src="https://image.pollinations.ai/prompt/portrait%20of%20male%20boxing%20coach%2C%20gym%20background%2C%20professional%20photo?nologo=true" alt="Coach Brian Kiplagat" loading="lazy">
+        </div>
+        <div class="coach-info">
+          <div>
+            <h4>Brian Kiplagat</h4>
+            <span>Boxing Coach</span>
+            <div class="coach-social">
+              <a href="#" aria-label="Instagram">📸</a>
+              <a href="#" aria-label="LinkedIn">🔗</a>
+            </div>
+          </div>
+          <span class="coach-tag">L2</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SCHEDULE ═══ -->
+<section id="schedule" style="background: var(--bg-alt);">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Weekly Schedule</div>
+      <h2 class="section-title">Show up whenever your day allows.</h2>
+    </div>
+    <div class="schedule-scroll">
+      <table class="schedule-table">
+        <thead><tr><th>Time</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th></tr></thead>
+        <tbody>
+          <tr><td>06:00</td><td class="active">💪 Strength</td><td>🏃 HIIT</td><td class="active">💪 Strength</td><td>🏃 HIIT</td><td class="active">💪 Strength</td><td>🏋️ Open Gym</td></tr>
+          <tr><td>09:00</td><td>🧘 Mobility</td><td>🥊 Boxing</td><td>🧘 Mobility</td><td>🥊 Boxing</td><td>🧘 Mobility</td><td class="active">🥊 Boxing</td></tr>
+          <tr><td>17:00</td><td>🏃 HIIT</td><td class="active">💪 Strength</td><td>🏃 HIIT</td><td class="active">💪 Strength</td><td>🏃 HIIT</td><td>—</td></tr>
+          <tr><td>18:30</td><td class="active">🥊 Boxing</td><td>🧘 Mobility</td><td class="active">🥊 Boxing</td><td>🧘 Mobility</td><td class="active">🥊 Boxing</td><td>—</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PRICING ═══ -->
+<section id="pricing">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Membership</div>
+      <h2 class="section-title">No lock-in contracts. Cancel anytime.</h2>
+      <p class="section-sub">Every plan includes access to all classes, showers, and free parking.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="price-card reveal">
+        <div class="price-tier">Pay As You Go</div>
+        <div class="price-amount">KES 500 <span>/ session</span></div>
+        <ul>
+          <li>Single-class access</li>
+          <li>All equipment included</li>
+          <li>No commitment</li>
+        </ul>
+        <a href="https://wa.me/254700000000" class="btn btn-ghost">Book a Session</a>
+      </div>
+      <div class="price-card featured reveal">
+        <div class="price-tier">Monthly</div>
+        <div class="price-amount">KES 4,500 <span>/ month</span></div>
+        <ul>
+          <li>Unlimited classes</li>
+          <li>Free trial session</li>
+          <li>1 free guest pass / month</li>
+          <li>Priority class booking</li>
+        </ul>
+        <a href="https://wa.me/254700000000" class="btn btn-primary">🔥 Start Free Trial</a>
+      </div>
+      <div class="price-card reveal">
+        <div class="price-tier">Quarterly</div>
+        <div class="price-amount">KES 12,000 <span>/ 3 months</span></div>
+        <ul>
+          <li>Unlimited classes</li>
+          <li>2 free guest passes</li>
+          <li>1 free coaching assessment</li>
+        </ul>
+        <a href="https://wa.me/254700000000" class="btn btn-ghost">Get Started</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TESTIMONIALS ═══ -->
+<section style="background: var(--bg-alt);">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Results</div>
+      <h2 class="section-title">What members say after week one.</h2>
+    </div>
+    <div class="testimonial-grid">
+      <div class="t-card reveal">
+        <div class="t-stars">★★★★★</div>
+        <p class="t-quote">First gym where a coach actually corrected my squat form instead of just handing me a plan.</p>
+        <div class="t-person">
+          <img src="https://image.pollinations.ai/prompt/portrait%20smiling%20young%20kenyan%20man%2C%20casual%2C%20photo?nologo=true" alt="Kevin M." loading="lazy">
+          <div><b>Kevin M.</b><span>Member since 2023</span></div>
+        </div>
+      </div>
+      <div class="t-card reveal">
+        <div class="t-stars">★★★★★</div>
+        <p class="t-quote">Lost 8kg in 3 months doing the HIIT classes. The 6am slot fits my work schedule perfectly.</p>
+        <div class="t-person">
+          <img src="https://image.pollinations.ai/prompt/portrait%20smiling%20young%20kenyan%20woman%2C%20casual%2C%20photo?nologo=true" alt="Faith W." loading="lazy">
+          <div><b>Faith W.</b><span>Member since 2024</span></div>
+        </div>
+      </div>
+      <div class="t-card reveal">
+        <div class="t-stars">★★★★★</div>
+        <p class="t-quote">The boxing coaching alone is worth the membership. Brian actually knows what he's doing.</p>
+        <div class="t-person">
+          <img src="https://image.pollinations.ai/prompt/portrait%20smiling%20middle%20aged%20kenyan%20man%2C%20casual%2C%20photo?nologo=true" alt="Samuel K." loading="lazy">
+          <div><b>Samuel K.</b><span>Member since 2022</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ GALLERY ═══ -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Gallery</div>
+      <h2 class="section-title">Inside the floor.</h2>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="https://image.pollinations.ai/prompt/wide%20shot%20gym%20interior%2C%20people%20training%2C%20dark%20moody%2C%20photo?nologo=true" alt="Gym floor" loading="lazy">
+      </div>
+      <div class="gallery-item">
+        <img src="https://image.pollinations.ai/prompt/close%20up%20barbell%20weight%20plates%2C%20gym%2C%20photo?nologo=true" alt="Weight plates" loading="lazy">
+      </div>
+      <div class="gallery-item">
+        <img src="https://image.pollinations.ai/prompt/group%20fitness%20class%20HIIT%2C%20gym%2C%20photo?nologo=true" alt="Group class" loading="lazy">
+      </div>
+      <div class="gallery-item">
+        <img src="https://image.pollinations.ai/prompt/boxing%20gloves%20wraps%20gym%20equipment%2C%20photo?nologo=true" alt="Boxing gear" loading="lazy">
+      </div>
+      <div class="gallery-item">
+        <img src="https://image.pollinations.ai/prompt/gym%20locker%20room%20clean%20modern%2C%20photo?nologo=true" alt="Locker room" loading="lazy">
+      </div>
+      <div class="gallery-item">
+        <img src="https://image.pollinations.ai/prompt/personal%20trainer%20coaching%20client%20gym%2C%20photo?nologo=true" alt="Coaching session" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FAQ ═══ -->
+<section style="background: var(--bg-alt);">
+  <div class="wrap" style="max-width:760px;">
+    <div class="section-head">
+      <div class="eyebrow">FAQ</div>
+      <h2 class="section-title">Questions before you show up.</h2>
+    </div>
+    <div id="faqList">
+      <div class="faq-item">
+        <button class="faq-q">Do I need a fitness background to join? <span class="icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">No. Every new member gets a free assessment and a starter plan matched to your current level — beginners are welcome at every class.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Is there a joining fee or contract? <span class="icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">No joining fee, no lock-in contract. Pay monthly or quarterly and cancel anytime with 7 days' notice.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Can I try a class before joining? <span class="icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Yes — every new member gets one free trial session. Message us on WhatsApp to book a time that works.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">What should I bring on my first visit? <span class="icon">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Just workout clothes, closed shoes, and water. Towels and lockers are provided.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ VISIT ═══ -->
+<section id="visit">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Visit Us</div>
+      <h2 class="section-title">Come see the floor for yourself.</h2>
+    </div>
+    <div class="visit-grid">
+      <div>
+        <div class="visit-info-row"><div class="k">📍 Address</div><div class="v">Kenyatta Avenue, Nakuru Town, Kenya</div></div>
+        <div class="visit-info-row"><div class="k">🕐 Hours</div><div class="v">Mon–Sat: 05:30 – 21:00 · Sun: 08:00 – 13:00</div></div>
+        <div class="visit-info-row"><div class="k">📞 Phone</div><div class="v"><a href="tel:+254700000000">+254 700 000 000</a></div></div>
+        <div class="visit-info-row"><div class="k">💬 WhatsApp</div><div class="v"><a href="https://wa.me/254700000000">Message us directly</a></div></div>
+        <form class="contact-form" action="mailto:hello@forgefitness.co.ke" method="post" enctype="text/plain">
+          <label>Your Name</label>
+          <input type="text" name="name" placeholder="Enter your full name" required>
+          <label>Phone or Email</label>
+          <input type="text" name="contact" placeholder="How should we reach you?" required>
+          <label>Message</label>
+          <textarea name="message" rows="4" placeholder="I'd like to book a free trial session..."></textarea>
+          <button type="submit" class="btn btn-primary" style="border:none; margin-top:8px;">📩 Send Message</button>
+        </form>
+      </div>
+      <iframe class="map-frame" src="https://www.google.com/maps?q=Nakuru,Kenya&output=embed" loading="lazy" title="Forge Fitness Club location map"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA BAND ═══ -->
+<section class="cta-band">
+  <div class="wrap">
+    <h2>Your first session<br>is free. Take it.</h2>
+    <a href="https://wa.me/254700000000?text=Hi%20Forge%2C%20I'd%20like%20to%20book%20a%20free%20trial%20session" class="btn btn-primary">💬 Book on WhatsApp</a>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="logo" style="margin-bottom:14px; font-size:28px;">FORGE<span>.</span></div>
+        <p style="color:var(--chalk-dim); font-size:14px; max-width:260px; font-weight:300;">Strength training and performance coaching in Nakuru, Kenya. Est. 2019.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram">📸</a>
+          <a href="#" aria-label="TikTok">🎵</a>
+          <a href="#" aria-label="Facebook">📘</a>
+          <a href="#" aria-label="YouTube">▶️</a>
+        </div>
+      </div>
+      <div>
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="#facility">Facility</a></li>
+          <li><a href="#programs">Programs</a></li>
+          <li><a href="#pricing">Membership</a></li>
+          <li><a href="#visit">Visit</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+254700000000">📞 +254 700 000 000</a></li>
+          <li><a href="https://wa.me/254700000000">💬 WhatsApp</a></li>
+          <li><a href="mailto:hello@forgefitness.co.ke">✉️ hello@forgefitness.co.ke</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Newsletter</h4>
+        <div class="footer-newsletter">
+          <input type="email" placeholder="Enter your email" />
+          <button>Subscribe</button>
+        </div>
+        <p style="font-size:0.65rem; color:var(--chalk-dim); margin-top:0.5rem; opacity:0.6;">Get workout tips & updates</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Forge Fitness Club. All rights reserved.</span>
+      <span>Site by IsaacWebs</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══ WHATSAPP FLOATING BUTTON (PREMIUM) ═══ -->
+<a href="https://wa.me/254700000000?text=Hi%20Forge%2C%20I'd%20like%20to%20book%20a%20free%20trial%20session" 
+   class="whatsapp-float" 
+   target="_blank"
+   rel="noopener noreferrer"
+   aria-label="Chat on WhatsApp">
+  
+  <span class="wa-tooltip">💬 Chat with us</span>
+  
+  <div class="wa-wrapper">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M12.032 21.965c-1.943 0-3.835-.563-5.447-1.627l-4.281 1.428 1.494-4.035c-1.266-1.846-1.936-4.023-1.936-6.283 0-6.216 5.044-11.275 11.241-11.275 3.006 0 5.83 1.172 7.955 3.298 2.125 2.126 3.296 4.957 3.296 7.967 0 6.218-5.044 11.274-11.242 11.274zm0-20.271c-5.213 0-9.456 4.249-9.456 9.471 0 2.137.731 4.192 2.067 5.833l-1.104 2.982 3.133-1.045c1.617 1.046 3.498 1.598 5.446 1.598 5.213 0 9.456-4.249 9.456-9.471 0-2.529-.985-4.907-2.773-6.695-1.789-1.788-4.167-2.773-6.769-2.773z"/>
+      <path d="M16.984 13.706c-.343-.173-2.029-1.003-2.343-1.117-.314-.115-.543-.173-.771.173-.229.346-.888 1.117-1.089 1.346-.201.229-.401.259-.744.086-.343-.173-1.449-.534-2.761-1.704-1.021-.912-1.711-2.039-1.911-2.383-.201-.345-.022-.53.151-.702.155-.155.344-.403.516-.605.172-.202.229-.346.344-.576.115-.23.057-.432-.029-.605-.086-.173-.771-1.861-1.057-2.548-.278-.67-.56-.562-.771-.573-.201-.009-.431-.009-.662-.009-.231 0-.604.086-.92.432-.316.346-1.207 1.181-1.207 2.879s1.236 3.339 1.409 3.571c.173.231 2.433 3.716 5.894 4.931.824.347 1.467.555 1.969.71.828.264 1.582.227 2.178.138.664-.104 2.029-.829 2.315-1.63.286-.801.286-1.488.201-1.631-.086-.144-.315-.231-.658-.404z"/>
+    </svg>
+    <span class="wa-badge">1</span>
+  </div>
+</a>
+
+<!-- ═══ JAVASCRIPT ═══ -->
+<script>
+  (function() {
+    'use strict';
+
+    // ─── MOBILE MENU ───
+    const burger = document.getElementById('burger');
+    const navLinks = document.getElementById('navLinks');
+
+    if (burger && navLinks) {
+      burger.addEventListener('click', function() {
+        this.classList.toggle('active');
+        navLinks.classList.toggle('open');
+      });
+      navLinks.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => {
+          burger.classList.remove('active');
+          navLinks.classList.remove('open');
+        });
+      });
+    }
+
+    // ─── HEADER SCROLL ───
+    const header = document.getElementById('site-header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 40);
+    });
+
+    // ─── SCROLL REVEAL ───
+    const revealElements = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    });
+    revealElements.forEach(el => revealObserver.observe(el));
+
+    // ─── FAQ ACCORDION ───
+    document.querySelectorAll('.faq-item').forEach(item => {
+      const q = item.querySelector('.faq-q');
+      const a = item.querySelector('.faq-a');
+      q.addEventListener('click', () => {
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => {
+          i.classList.remove('open');
+          i.querySelector('.faq-a').style.maxHeight = null;
+        });
+        if (!isOpen) {
+          item.classList.add('open');
+          a.style.maxHeight = a.scrollHeight + 'px';
+        }
+      });
+    });
+
+    // ─── SMOOTH SCROLL ───
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          const navHeight = document.getElementById('site-header').offsetHeight;
+          const top = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
+          window.scrollTo({ top, behavior: 'smooth' });
+        }
+      });
+    });
+
+  })();
+</script>
+</body>
+</html>
